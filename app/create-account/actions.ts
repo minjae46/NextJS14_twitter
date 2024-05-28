@@ -9,7 +9,7 @@ const formSchema = z
   .object({
     username: z
       .string()
-      .min(5, "Username should be at least 5 characters long.")
+      .min(2, "Username should be at least 2 characters long.")
       .toLowerCase()
       .trim(),
     email: z
@@ -17,12 +17,12 @@ const formSchema = z
       .email()
       .toLowerCase()
       .refine(
-        (email) => email.includes("zod.com"),
-        "Only @zod.com emails are allowed."
+        (email) => email.includes("google.com"),
+        "Only @google.com emails are allowed."
       ),
     password: z
       .string()
-      .min(10, "Password should be at least 10 characters long.")
+      .min(6, "Password should be at least 6 characters long.")
       .regex(
         passwordRegex,
         "Password should contain at least one number (0123456789)."
