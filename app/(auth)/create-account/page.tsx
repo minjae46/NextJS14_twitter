@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Input from "@/components/input";
 import Button from "@/components/button";
 import { useFormState } from "react-dom";
@@ -45,6 +46,12 @@ export default function CreateAccount() {
         />
         <Button text="Create account" />
       </form>
+      <div className="flex gap-2 justify-center w-full">
+        <span>이미 계정이 있나요?</span>
+        <Link href="/log-in" className="hover:underline">
+          로그인
+        </Link>
+      </div>
     </div>
   );
 }
