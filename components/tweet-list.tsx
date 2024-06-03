@@ -22,7 +22,7 @@ export default function TweetList({ initialTweets }: TweetListProps) {
   const onLoadNextClick = async () => {
     setIsLoading(true);
     const nextTweets = await getNextTweets(cursorId);
-    const newCursorId = nextTweets[nextTweets.length - 1].id;
+    const newCursorId = nextTweets[nextTweets.length - 1]?.id;
     if (nextTweets.length === 0) {
       setIsLastPage(true);
     }

@@ -1,6 +1,7 @@
 import db from "@/lib/db";
 import getSession from "@/lib/session";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 async function getIsOwner(userId: number) {
   const session = await getSession();
@@ -39,6 +40,9 @@ export default async function TweetDetail({
   const isOwner = await getIsOwner(tweet.userId);
   return (
     <div className="flex flex-col">
+      <Link href={"/"} className="hover:underline">
+        Go Home
+      </Link>
       <div className="p-5 flex items-center gap-3">
         <h3 className="text-blue-500 font-bold text-xl">
           {tweet.user.username}
